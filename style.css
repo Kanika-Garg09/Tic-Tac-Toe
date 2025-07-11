@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+    background-color:  black;
+    color:white;
+    height : 75px;
+    font-size: 27px ;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;      /**top-bottom : 0px, left-right : 12px*/
+
+}
+
+nav ul{
+    list-style-type: none;  /*ye bindi hata dega list ki,by default bindi arri thi*/
+}
+.gamecontainer{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    margin-top: 50px;
+
+}
+.container{
+    display: grid;
+    grid-template-rows: repeat(3,10vw);
+    grid-template-columns: repeat(3,10vw);
+}
+.box{
+    
+    border: 2px solid black;                /*jo tmne 9 dabbe bnaye h usko border de dega*/
+    font-size: 8vw; 
+    cursor: pointer;                          /* wo hath sa bana ajayega */
+    display: flex;
+    justify-content: center;
+    align-items: center;                       
+
+}
+.box:hover{
+    background-color: rgb(245, 206, 245);
+}
+.gameinfo{
+    padding: 0 34px;
+}
+.imagebox img{
+    display: none;
+}
+.br-0{                                                      /* ye right border ko hata dega aise hi 4 classes banai */
+    border-right: 0;                                         /*hai jisse ham right left top bottom border htate ja rhe h*/   
+}
+.bl-0{
+    border-left: 0;
+}
+.bt-0{
+    border-top: 0;
+}
+.bb-0{
+    border-bottom: 0;
+}
