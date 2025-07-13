@@ -2,6 +2,7 @@ console.log("welcome to Tic Tac Toe")
 let audioturn = new Audio("turnsound.mp3")            //new Audio is used to add sound in js
 let gameover = new Audio("gameend.mp3")
 let turn ="X"                  //initial its x turn
+let isgameover = false
 
 //function to change the turn
 
@@ -10,7 +11,27 @@ const changeturn = ()=>{                     //its a arrow func ; we will create
 }
 
 //function to check win 
-const checkwin=()=>{}
+const checkwin=()=>{
+    let boxtext = document.getElementsByClassName('boxtext')              // all X and 0 box saved in boxtexts variable
+    let wins = [
+        [0,1,2],                      //horizontal wins from 0 to 8
+        [3,4,5],
+        [6,7,8],
+        [0,3,6],
+        [1,4,7],
+        [2,5,8],
+        [0,4,8],
+        [2,4,6]
+    ]
+    wins.forEach(e=>{
+        if((boxtext[e[0]].innerText===boxtext[e[1]].innerText)&&(boxtext[e[1]].innerText===boxtext[e[2]].innerText)&&(boxtext[e[0]].innerText!== ""))
+        {
+            document.querySelector('.info').innerText = boxtext[e[0]].innerText + " WON"
+            isgameover = true
+        }
+
+    })
+}
 
 
 //game logic
@@ -28,7 +49,10 @@ Array.from(boxes).forEach(element => {
             turn = changeturn();
             
             checkwin();
-            document.getElementsByClassName("turn")[0].innerText = "Turn for " + turn;
+            if(!isgameover)
+                {
+            document.getElementsByClassName("info")[0].innerText = "Turn for " + turn;     // ye info hi info ko change krega
+            }
         }
     });
 });
